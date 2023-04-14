@@ -1,0 +1,12 @@
+.category-con {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 50px;
+}
+
+.Cat-title {
+  font-size: 68px;
+  margin-bottom: 25px;
+  text-align: center;
+}
