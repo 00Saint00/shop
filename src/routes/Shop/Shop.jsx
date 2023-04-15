@@ -5,15 +5,19 @@ import PreviewCategories from "../categories-preview/PreviewCategories";
 import Category from "../Category/Category.jsx";
 import { getCategoriesAndDocuments } from "../../Utils/Firebase/Firebase";
 import { setCategoriesMap } from "../../store/Categories/categories.action.js";
+import { setCategories } from "../../store/Categories/categories.action.js";
 // import "./Shop.scss";
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocuments("categories");
-      dispatch(setCategoriesMap(categoryMap));
+      const categoriesArray = await getCategoriesAndDocuments("categories");
+      dispatch(setCategories(categoriesArray));
     };
+    //   const categoryMap = await getCategoriesAndDocuments("categories");
+    //   dispatch(setCategoriesMap(categoryMap));
+    // };
     getCategoriesMap();
   }, []);
 
