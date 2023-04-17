@@ -5,8 +5,6 @@ import {
   selectCartTotal,
 } from "../../store/cart/cart.selector";
 
-import { CartContext } from "../../contexts/cart-context";
-import { useContext } from "react";
 import CheckoutItem from "../../Components/checkout-item/CheckoutItem";
 
 const Checkout = () => {

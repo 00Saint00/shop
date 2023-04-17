@@ -19,7 +19,7 @@ const Navigation = () => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
-  console.log(isCartOpen);
+  // console.log(isCartOpen);
   return (
     <Fragment>
       <NavigationContainer>
