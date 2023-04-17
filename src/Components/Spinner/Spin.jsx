@@ -1,9 +1,9 @@
 import { SpinnerContainer, SpinnerOverlay } from "./Spin.styles";
 
-const spin = () => (
+const Spin = () => (
   <SpinnerOverlay>
     <SpinnerContainer />
   </SpinnerOverlay>
 );
 
-export default spin;
+export default Spin;
