@@ -3,21 +3,15 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import PreviewCategories from "../categories-preview/PreviewCategories";
 import Category from "../Category/Category.jsx";
-import { getCategoriesAndDocuments } from "../../Utils/Firebase/Firebase";
-import { setCategoriesMap } from "../../store/Categories/categories.action.js";
-import { setCategories } from "../../store/Categories/categories.action.js";
-// import "./Shop.scss";
+
+import { fetchCategoriesAsync } from "../../store/Categories/categories.action.js";
 
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoriesArray = await getCategoriesAndDocuments("categories");
-      dispatch(setCategories(categoriesArray));
+      dispatch(fetchCategoriesAsync());
     };
-    //   const categoryMap = await getCategoriesAndDocuments("categories");
-    //   dispatch(setCategoriesMap(categoryMap));
-    // };
     getCategoriesMap();
   }, []);
 
