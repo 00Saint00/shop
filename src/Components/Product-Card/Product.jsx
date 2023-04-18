@@ -21,7 +21,7 @@ const Product = ({ product }) => {
           {"\u0024"} {price}
         </span>
       </div>
-      <Button buttonType={BUTTON_TYPE_CLASSES.inverted} onClick={addToCart}>
+      <Button buttonType={BUTTON_TYPE_CLASSES.base} onClick={addToCart}>
         Add to cart
       </Button>
     </div>

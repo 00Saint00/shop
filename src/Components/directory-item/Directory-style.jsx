@@ -41,7 +41,8 @@ export const DirectoryContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 4px 3px 6px black;
   margin: 0 7.5px 15px;
   overflow: hidden;
 
