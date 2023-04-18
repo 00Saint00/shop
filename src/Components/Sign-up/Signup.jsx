@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   createAuthUserWithEmailAndPassword,
   UserDocumentFromAuth,
@@ -7,6 +8,7 @@ import {
 import FormInput from "../Form-input/FormInput";
 import "./Signup.scss";
 import Button from "../Button/Button";
+import { signUpStart } from "../../store/user/user.action";
 
 const defaultFormFields = {
   displayName: "",
@@ -18,6 +20,7 @@ const defaultFormFields = {
 const Signup = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  const dispatch = useDispatch();
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -30,12 +33,7 @@ const Signup = () => {
       alert("passwords do not match");
     }
     try {
-      const { user } = await createAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await UserDocumentFromAuth(user, { displayName });
+      dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (error) {
       if (error.code === "auth/email-a;ready-in-use") {
@@ -53,7 +51,7 @@ const Signup = () => {
 
   return (
     <div className="sign-up-container">
-      <h2>Dont have an account?</h2>
+      <h2>Don't have an account?</h2>
       <span>Sign up with your email and password</span>
       <form onSubmit={handleSubmit}>
         <FormInput

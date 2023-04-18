@@ -9,7 +9,6 @@ import {
   onAuthStateChanged,
 } from "firebase/auth";
 
-// import { getFireStore, doc, getDoc, setDoc } from "firebase/firestore";
 import {
   getFirestore,
   doc,
@@ -42,12 +41,8 @@ googleProvider.setCustomParameters({
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => {
-  // signInWithPopup(auth, googleProvider);
-
   return signInWithPopup(auth, provider);
 };
-// export const signInWithGoogleRedirect = () =>
-//   signInWithRedirect(auth, googleProvider);
 
 export const db = getFirestore();
 
@@ -122,3 +117,16 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};

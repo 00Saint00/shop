@@ -15,9 +15,9 @@ export const Body = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.5;
   position: absolute;
 
   h2 {
@@ -26,6 +26,7 @@ export const Body = styled.div`
     font-size: 22px;
     color: #4a4a4a;
     text-transform: uppercase;
+    font-weight: 800;
   }
 
   p {
@@ -42,7 +43,7 @@ export const DirectoryContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: hsl(0, 0%, 100%);
-  box-shadow: 4px 3px 6px black;
+  box-shadow: 4px 4px 6px black;
   margin: 0 7.5px 15px;
   overflow: hidden;
 
